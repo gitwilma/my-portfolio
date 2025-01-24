@@ -1,0 +1,119 @@
+/* Styling för hela sidan */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Förhindrar vanlig scroll */
+    background-color: #b9bc86;
+}
+
+/* Skapa fullskärmssektioner */
+section {
+    height: 100vh; /* Gör varje sektion fullskärm */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    scroll-snap-align: start; /* Sektionerna snäpper i toppen */
+    position: relative; /* För positionering av mobilbilden */
+}
+
+/* Wrapper för texten */
+.text-container {
+    display: flex;
+    flex-direction: column; /* Placera h1 och h2 vertikalt */
+    max-width: 50%; /* Begränsa textens bredd om nödvändigt */
+    z-index: 1; /* Se till att texten ligger över andra element */
+}
+
+/* Styling för h1 och h2 */
+h1 {
+    font-size: 10rem; /* Stor rubrik */
+    margin: 0;
+    padding-left: 30px;
+    font-family: 'EB Garamond', sans-serif;
+    font-weight: 400;
+    color: #dfe777;
+}
+
+h2 {
+    font-size: 1.5rem; /* Mindre underrubrik */
+    margin: 10px 0;
+    padding-left: 30px;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: #2e3105;
+}
+
+/* Styling för asiden */
+aside {
+    max-width: 50%;
+}
+
+aside img {
+    width: 100%;
+    height: auto;
+}
+
+/* Mobilbilden */
+.mobile-img {
+    display: none; /* Dold som standard */
+    position: absolute; /* Placera den överst i sektionen */
+    top: 0;
+    left: 0;
+    width: 100%; /* Fyll hela bredden */
+    height: auto; /* Bevara proportionerna */
+    z-index: 2; /* Lägg mobilbilden över allt annat */
+}
+
+/* Aktivera scroll-snap */
+html {
+    scroll-snap-type: y mandatory; /* Gör så att scrollen tvingar till sektioner */
+}
+
+/* MEDIA QUERIES */
+
+/* För skärmar som är 600px eller mindre */
+@media (max-width: 600px) {
+    aside img {
+        display: none; /* Dölj desktop-bilden */
+    }
+
+    .mobile-img {
+        display: block; /* Visa mobilbilden */
+    }
+
+    .text-container {
+        max-width: 80%; /* Låt texten fylla mer av bredden */
+    }
+
+    h1 {
+        font-size: 2rem; /* Minska rubrikstorleken */
+    }
+
+    h2 {
+        font-size: 1rem; /* Minska underrubrikens storlek */
+    }
+}
+
+/* För skärmar som är 360px eller mindre */
+@media (max-width: 360px) {
+    .text-container {
+        max-width: 90%; /* Minska textens bredd för små skärmar */
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Gör rubriken ännu mindre */
+        text-align: center; /* Centra rubriken */
+    }
+
+    h2 {
+        font-size: 0.9rem; /* Minska storleken på underrubriken */
+        text-align: center; /* Centra underrubriken */
+    }
+
+    section {
+        padding: 10px; /* Lägg till padding för att ge lite andrum */
+    }
+}
